@@ -1,9 +1,9 @@
 /*	DnD Out of the Abyss Random Name Selector
 *	David Tebo	
-	Last Updated: March 09, 2021
+	Last Updated: February 19, 2024
 
-		This selector takes a text file filled with the names put forward by my players in the Out of the Abyss campaign
-	I am running for them. 
+		This selector takes a text file filled with the names put forward by my players in the 
+	Out of the Abyss campaign I am running for them. 
 
 	Source.Cpp contains funcions calls, UI, and this descriptor
 	Header.h contains all functions and libraries
@@ -54,8 +54,7 @@ int main() {
 	string newName;
 	string firstWord;
 
-	string List[50];
-
+	string List[500];
 
 
 
@@ -90,7 +89,7 @@ int main() {
 				removeFromList(nameSelected, List);
 			}
 			else {
-				selection = 1;
+				selection = -1;
 			}
 
 			cout << "\n\n";

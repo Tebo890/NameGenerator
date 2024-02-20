@@ -5,6 +5,9 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
+#include <time.h>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -31,9 +34,18 @@ int readList(string List[]) {
 
 int printName(string List[], int size) {
 
+	srand(time(NULL));
 	int index = rand() % size;
 
-	cout << "\n\tAND THE LUCKY NAME IS *DRUM ROLL*........" << List[index] << "\n\t";
+	cout << "\n\tAND THE LUCKY NAME IS *DRUM ROLL*";
+
+	this_thread::sleep_for(chrono::milliseconds(50)); cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(50)); cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(50)); cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(50)); cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(50)); cout << ".";
+	
+	this_thread::sleep_for(chrono::milliseconds(100)); cout << List[index] << "\n\t";
 
 	return index;
 	
@@ -53,16 +65,12 @@ void removeFromList(int nameSpace, string List[]) {
 
 	List[nameSpace] = "";
 
-	if (nameSpace < 49) {
-		while (List[nameSpace + i + 1] != "ENDOFTHELINEBUCKAROO") {
-			List[nameSpace + i] = List[nameSpace + i + 1];
-			List[nameSpace + i + 1] = "";
+	while (List[nameSpace + i + 1] != "ENDOFTHELINEBUCKAROO") {
+		List[nameSpace + i] = List[nameSpace + i + 1];
+		List[nameSpace + i + 1] = "";
 
-			++i;
-		}
+		++i;
 	}
-
-	List[nameSpace + i + 1] = "";
 
 }
 
